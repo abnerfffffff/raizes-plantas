@@ -17,1023 +17,178 @@
   --accent2: light-dark(#d4c49f,#423c2c);
   --shadow: 0 18px 60px rgba(29, 73, 45, .12);
 }
-
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-
-body {
-  margin:0;
-  font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-
-#app {
-  min-height:100vh;
-  background-color:var(--bg);
-  border-radius:0;
-  overflow-x:hidden;
-}
-
+body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); }
+#app { min-height:100vh; background-color:var(--bg); border-radius:0; overflow-x:hidden; }
 a { color:inherit; text-decoration:none; }
 button, input { font:inherit; }
-
-.container {
-  width:min(1120px, calc(100% - 36px));
-  margin:0 auto;
-}
-
-.topbar {
-  position:sticky;
-  top:0;
-  z-index:20;
-  backdrop-filter:blur(16px);
-  background:color-mix(in srgb, var(--bg) 78%, transparent);
-  border-bottom:1px solid var(--line);
-}
-
-.nav {
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:22px;
-}
-
-.brand {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:900;
-  letter-spacing:-.03em;
-  font-family:Georgia,'Times New Roman',serif;
-}
-
-.brand-mark {
-  width:38px;
-  height:38px;
-  border-radius:5px 14px 5px 14px;
-  background:var(--accent);
-  display:grid;
-  place-items:center;
-  color:#f9f1df;
-  box-shadow:4px 4px 0 var(--surface2);
-  transform:rotate(-4deg);
-}
-
-.navlinks {
-  display:flex;
-  gap:20px;
-  color:var(--muted);
-  font-weight:700;
-  font-size:.95rem;
-}
-
+.container { width:min(1120px, calc(100% - 36px)); margin:0 auto; }
+.topbar { position:sticky; top:0; z-index:20; backdrop-filter: blur(16px); background:color-mix(in srgb, var(--bg) 78%, transparent); border-bottom:1px solid var(--line); }
+.nav { height:72px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+.brand { display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:-.03em; font-family:Georgia,'Times New Roman',serif; }
+.brand-mark { width:38px; height:38px; border-radius:5px 14px 5px 14px; background:var(--accent); display:grid; place-items:center; color:#f9f1df; box-shadow:4px 4px 0 var(--surface2); transform:rotate(-4deg); }
+.navlinks { display:flex; gap:20px; color:var(--muted); font-weight:700; font-size:.95rem; }
 .navlinks a:hover { color:var(--text); }
-
-.hero {
-  padding:70px 0 38px;
-  position:relative;
-}
-
-.hero::before {
-  content:"";
-  position:absolute;
-  width:520px;
-  height:520px;
-  right:-220px;
-  top:-150px;
-  border-radius:50%;
-  background:radial-gradient(circle, var(--accent2), transparent 68%);
-  opacity:.6;
-  pointer-events:none;
-}
-
-.grid-hero {
-  display:grid;
-  grid-template-columns:1.25fr .75fr;
-  gap:44px;
-  align-items:center;
-}
-
-.eyebrow {
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-  padding:7px 11px;
-  border:1px solid var(--line);
-  border-radius:5px 999px 999px 5px;
-  background:var(--surface);
-  color:#8a6841;
-  font-size:.82rem;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  box-shadow:4px 4px 0 var(--surface2);
-}
-
-h1 {
-  font-size:clamp(2.8rem,7vw,5.8rem);
-  line-height:.92;
-  letter-spacing:-.065em;
-  margin:20px 0 18px;
-  max-width:760px;
-}
-
-.lede {
-  font-size:1.1rem;
-  line-height:1.75;
-  color:var(--muted);
-  max-width:700px;
-}
-
-.hero-actions {
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:26px;
-}
-
-.btn {
-  border:0;
-  border-radius:14px;
-  padding:13px 18px;
-  cursor:pointer;
-  font-weight:900;
-}
-
-.btn-primary {
-  background:var(--accent);
-  color:white;
-}
-
-.btn-secondary {
-  background:var(--surface);
-  color:var(--text);
-  border:1px solid var(--line);
-}
-
-.qr-card {
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:5px 24px 5px 24px;
-  padding:22px;
-  box-shadow:10px 10px 0 var(--surface2),var(--shadow);
-  transform:rotate(1deg);
-}
-
-.qr-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:14px;
-}
-
-.qr-badge {
-  font-size:.78rem;
-  font-weight:900;
-  color:var(--accent);
-}
-
-.qr {
-  width:170px;
-  aspect-ratio:1;
-  display:block;
-  margin:8px auto 16px;
-  border-radius:16px;
-}
-
-.qr-note {
-  font-size:.82rem;
-  line-height:1.5;
-  color:var(--muted);
-  text-align:center;
-}
-
+.hero { padding:70px 0 38px; position:relative; }
+.hero::before { content:""; position:absolute; width:520px; height:520px; right:-220px; top:-150px; border-radius:50%; background:radial-gradient(circle, var(--accent2), transparent 68%); opacity:.6; pointer-events:none; }
+.grid-hero { display:grid; grid-template-columns:1.25fr .75fr; gap:44px; align-items:center; }
+.eyebrow { display:inline-flex; gap:8px; align-items:center; padding:7px 11px; border:1px solid var(--line); border-radius:5px 999px 999px 5px; background:var(--surface); color:#8a6841; font-size:.82rem; font-weight:900; text-transform:uppercase; letter-spacing:.12em; box-shadow:4px 4px 0 var(--surface2); }
+h1 { font-size:clamp(2.8rem,7vw,5.8rem); line-height:.92; letter-spacing:-.065em; margin:20px 0 18px; max-width:760px; }
+.lede { font-size:1.1rem; line-height:1.75; color:var(--muted); max-width:700px; }
+.hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:26px; }
+.btn { border:0; border-radius:14px; padding:13px 18px; cursor:pointer; font-weight:900; }
+.btn-primary { background:var(--accent); color:white; }
+.btn-secondary { background:var(--surface); color:var(--text); border:1px solid var(--line); }
+.qr-card { background:var(--surface); border:1px solid var(--line); border-radius:5px 24px 5px 24px; padding:22px; box-shadow:10px 10px 0 var(--surface2),var(--shadow); transform:rotate(1deg); }
+.qr-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.qr-badge { font-size:.78rem; font-weight:900; color:var(--accent); }
+.qr { width:170px; aspect-ratio:1; display:block; margin:8px auto 16px; border-radius:16px; }
+.qr-note { font-size:.82rem; line-height:1.5; color:var(--muted); text-align:center; }
 .section { padding:54px 0; }
-
-.section-head {
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:end;
-  margin-bottom:24px;
-}
-
-.kicker {
-  color:var(--accent);
-  font-weight:900;
-  font-size:.8rem;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-}
-
-h2 {
-  font-size:clamp(2rem,4vw,3.2rem);
-  letter-spacing:-.05em;
-  margin:7px 0 0;
-}
-
-.search {
-  width:min(360px,100%);
-  display:flex;
-  align-items:center;
-  gap:9px;
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:10px 14px;
-}
-
-.search input {
-  width:100%;
-  border:0;
-  outline:0;
-  background:transparent;
-  color:var(--text);
-}
-
-.plants-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.plant-card {
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:5px 22px 5px 22px;
-  overflow:hidden;
-  box-shadow:8px 9px 0 var(--surface2);
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-
-.plant-card:hover {
-  transform:translateY(-4px);
-  box-shadow:var(--shadow);
-}
-
+.section-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:24px; }
+.kicker { color:var(--accent); font-weight:900; font-size:.8rem; text-transform:uppercase; letter-spacing:.12em; }
+h2 { font-size:clamp(2rem,4vw,3.2rem); letter-spacing:-.05em; margin:7px 0 0; }
+.search { width:min(360px,100%); display:flex; align-items:center; gap:9px; background:var(--surface); border:1px solid var(--line); border-radius:15px; padding:10px 14px; }
+.search input { width:100%; border:0; outline:0; background:transparent; color:var(--text); }
+.plants-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.plant-card { background:var(--surface); border:1px solid var(--line); border-radius:5px 22px 5px 22px; overflow:hidden; box-shadow:8px 9px 0 var(--surface2); transition:transform .2s ease, box-shadow .2s ease; }
+.plant-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
 .plant-art { padding:12px; }
-
-.plant-art svg {
-  width:100%;
-  display:block;
-  border-radius:17px;
-}
-
-.plant-body {
-  padding:6px 20px 22px;
-}
-
-.tag {
-  display:inline-flex;
-  padding:6px 9px;
-  border-radius:4px;
-  background:var(--accent2);
-  color:#596043;
-  font-size:.72rem;
-  font-weight:900;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-}
-
-.plant-body h3 {
-  font-family:Georgia,'Times New Roman',serif;
-  font-size:1.55rem;
-  margin:14px 0 3px;
-  letter-spacing:-.03em;
-}
-
-.scientific {
-  color:var(--muted);
-  margin:0 0 10px;
-}
-
-.plant-body > p:not(.scientific) {
-  color:var(--muted);
-  line-height:1.6;
-  min-height:78px;
-}
-
-.more {
-  background:transparent;
-  color:var(--accent);
-  border:0;
-  padding:0;
-  font-weight:900;
-  cursor:pointer;
-}
-
-.more span {
-  display:inline-block;
-  transition:transform .2s;
-}
-
-.more:hover span {
-  transform:translateX(4px);
-}
-
-.timeline {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-
-.time-item {
-  padding:18px;
-  border:1px solid var(--line);
-  border-radius:20px;
-  background:var(--surface);
-}
-
-.time {
-  font-size:1.8rem;
-  font-weight:950;
-  letter-spacing:-.04em;
-  color:var(--accent);
-}
-
-.time-item p {
-  color:var(--muted);
-  line-height:1.55;
-  margin-bottom:0;
-}
-
-.project {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-.info {
-  padding:28px;
-  border-radius:5px 24px 5px 24px;
-  border:1px solid var(--line);
-  background:var(--surface);
-  box-shadow:6px 7px 0 var(--surface2);
-}
-
-.info h3 {
-  margin-top:0;
-  font-size:1.25rem;
-}
-
-.info p,
-.info li {
-  color:var(--muted);
-  line-height:1.65;
-}
-
-.sources {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.source {
-  border:1px solid var(--line);
-  padding:10px 12px;
-  border-radius:12px;
-  background:var(--surface2);
-  color:var(--text);
-  font-weight:800;
-  font-size:.88rem;
-}
-
-.notice {
-  margin-top:16px;
-  border-left:4px solid var(--accent);
-  background:var(--surface2);
-  padding:14px 16px;
-  border-radius:0 14px 14px 0;
-  color:var(--muted);
-  line-height:1.6;
-}
-
-footer {
-  padding:28px 0 44px;
-  color:var(--muted);
-  font-size:.88rem;
-  border-top:1px solid var(--line);
-  margin-top:30px;
-}
-
-.modal {
-  position:fixed;
-  inset:0;
-  background:rgba(4,13,8,.62);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:50;
-}
-
+.plant-art svg { width:100%; display:block; border-radius:17px; }
+.plant-body { padding:6px 20px 22px; }
+.tag { display:inline-flex; padding:6px 9px; border-radius:4px; background:var(--accent2); color:#596043; font-size:.72rem; font-weight:900; letter-spacing:.04em; text-transform:uppercase; }
+.plant-body h3 { font-family:Georgia,'Times New Roman',serif; font-size:1.55rem; margin:14px 0 3px; letter-spacing:-.03em; }
+.scientific { color:var(--muted); margin:0 0 10px; }
+.plant-body > p:not(.scientific) { color:var(--muted); line-height:1.6; min-height:78px; }
+.more { background:transparent; color:var(--accent); border:0; padding:0; font-weight:900; cursor:pointer; }
+.more span { display:inline-block; transition:transform .2s; }
+.more:hover span { transform:translateX(4px); }
+.timeline { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.time-item { padding:18px; border:1px solid var(--line); border-radius:20px; background:var(--surface); }
+.time { font-size:1.8rem; font-weight:950; letter-spacing:-.04em; color:var(--accent); }
+.time-item p { color:var(--muted); line-height:1.55; margin-bottom:0; }
+.project { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.info { padding:28px; border-radius:5px 24px 5px 24px; border:1px solid var(--line); background:var(--surface); box-shadow:6px 7px 0 var(--surface2); }
+.info h3 { margin-top:0; font-size:1.25rem; }
+.info p, .info li { color:var(--muted); line-height:1.65; }
+.sources { display:flex; flex-wrap:wrap; gap:10px; }
+.source { border:1px solid var(--line); padding:10px 12px; border-radius:12px; background:var(--surface2); color:var(--text); font-weight:800; font-size:.88rem; }
+.notice { margin-top:16px; border-left:4px solid var(--accent); background:var(--surface2); padding:14px 16px; border-radius:0 14px 14px 0; color:var(--muted); line-height:1.6; }
+footer { padding:28px 0 44px; color:var(--muted); font-size:.88rem; border-top:1px solid var(--line); margin-top:30px; }
+.modal { position:fixed; inset:0; background:rgba(4,13,8,.62); display:none; align-items:center; justify-content:center; padding:20px; z-index:50; }
 .modal.show { display:flex; }
-
-.sheet {
-  width:min(780px,100%);
-  max-height:88vh;
-  overflow:auto;
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:28px;
-  box-shadow:0 30px 100px rgba(0,0,0,.35);
-}
-
-.sheet-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:22px 24px;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  background:var(--surface);
-}
-
-.close {
-  border:1px solid var(--line);
-  background:var(--surface2);
-  color:var(--text);
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  cursor:pointer;
-  font-size:1.2rem;
-}
-
+.sheet { width:min(780px,100%); max-height:88vh; overflow:auto; background:var(--surface); border:1px solid var(--line); border-radius:28px; box-shadow:0 30px 100px rgba(0,0,0,.35); }
+.sheet-top { display:flex; justify-content:space-between; align-items:center; padding:22px 24px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--surface); }
+.close { border:1px solid var(--line); background:var(--surface2); color:var(--text); width:42px; height:42px; border-radius:12px; cursor:pointer; font-size:1.2rem; }
 .sheet-content { padding:24px; }
+.detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
+.detail { border:1px solid var(--line); background:var(--surface2); border-radius:16px; padding:15px; }
+.detail strong { display:block; color:var(--text); margin-bottom:5px; }
+.detail span { color:var(--muted); line-height:1.5; }
+.empty { grid-column:1/-1; padding:35px; border:1px dashed var(--line); border-radius:20px; text-align:center; color:var(--muted); }
+@media(max-width:900px) { .grid-hero,.project { grid-template-columns:1fr; } .plants-grid { grid-template-columns:repeat(2,1fr); } .timeline { grid-template-columns:repeat(2,1fr); } .qr-card { max-width:460px; } }
+@media(max-width:620px) { .navlinks { display:none; } .hero { padding-top:46px; } .plants-grid,.timeline,.detail-grid { grid-template-columns:1fr; } .section-head { align-items:stretch; flex-direction:column; } h1 { font-size:3.35rem; } .container { width:min(100% - 24px, 1120px); } }
 
-.detail-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-  margin-top:20px;
-}
-
-.detail {
-  border:1px solid var(--line);
-  background:var(--surface2);
-  border-radius:16px;
-  padding:15px;
-}
-
-.detail strong {
-  display:block;
-  color:var(--text);
-  margin-bottom:5px;
-}
-
-.detail span {
-  color:var(--muted);
-  line-height:1.5;
-}
-
-.empty {
-  grid-column:1/-1;
-  padding:35px;
-  border:1px dashed var(--line);
-  border-radius:20px;
-  text-align:center;
-  color:var(--muted);
-}
-
-@media(max-width:900px) {
-  .grid-hero,
-  .project {
-    grid-template-columns:1fr;
-  }
-
-  .plants-grid {
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .timeline {
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .qr-card {
-    max-width:460px;
-  }
-}
-
-@media(max-width:620px) {
-  .navlinks { display:none; }
-  .hero { padding-top:46px; }
-
-  .plants-grid,
-  .timeline,
-  .detail-grid {
-    grid-template-columns:1fr;
-  }
-
-  .section-head {
-    align-items:stretch;
-    flex-direction:column;
-  }
-
-  h1 { font-size:3.35rem; }
-
-  .container {
-    width:min(100% - 24px, 1120px);
-  }
-}
-
-.catalog-tools {
-  display:grid;
-  grid-template-columns:minmax(220px,1.4fr) minmax(200px,.9fr) auto;
-  gap:10px;
-  width:min(760px,100%);
-}
-
-.search,
-.plant-select {
-  min-height:48px;
-  display:flex;
-  align-items:center;
-  gap:9px;
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:10px 14px;
-}
-
-.search input,
-.plant-select {
-  width:100%;
-}
-
-.search input {
-  border:0;
-  outline:0;
-  background:transparent;
-  color:var(--text);
-}
-
-.plant-select {
-  color:var(--text);
-  outline:0;
-  cursor:pointer;
-}
-
-.quick-nav {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-  margin:0 0 18px;
-}
-
-.quick-nav button {
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--muted);
-  padding:8px 11px;
-  border-radius:999px;
-  cursor:pointer;
-  font-weight:800;
-}
-
-.quick-nav button.active,
-.quick-nav button:hover {
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#fff;
-}
-
-.catalog-meta {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  margin:-6px 0 18px;
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-.clear-btn {
-  border:0;
-  background:transparent;
-  color:var(--accent);
-  font-weight:900;
-  cursor:pointer;
-}
-
+.catalog-tools { display:grid; grid-template-columns:minmax(220px,1.4fr) minmax(200px,.9fr) auto; gap:10px; width:min(760px,100%); }
+.search, .plant-select { min-height:48px; display:flex; align-items:center; gap:9px; background:var(--surface); border:1px solid var(--line); border-radius:15px; padding:10px 14px; }
+.search input, .plant-select { width:100%; }
+.search input { border:0; outline:0; background:transparent; color:var(--text); }
+.plant-select { color:var(--text); outline:0; cursor:pointer; }
+.quick-nav { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:0 0 18px; }
+.quick-nav button { border:1px solid var(--line); background:var(--surface); color:var(--muted); padding:8px 11px; border-radius:999px; cursor:pointer; font-weight:800; }
+.quick-nav button.active, .quick-nav button:hover { background:var(--accent); border-color:var(--accent); color:#fff; }
+.catalog-meta { display:flex; align-items:center; justify-content:space-between; gap:14px; margin:-6px 0 18px; color:var(--muted); font-size:.9rem; }
+.clear-btn { border:0; background:transparent; color:var(--accent); font-weight:900; cursor:pointer; }
 .plant-art { padding:12px; }
-
-.plant-illustration {
-  width:100%;
-  aspect-ratio:16/10;
-  display:block;
-  overflow:hidden;
-  border-radius:4px;
-  background:#e9ddc5;
-  border:1px solid #c7b58f;
-  box-shadow:inset 0 0 0 6px rgba(255,248,231,.34);
-}
-
-.plant-illustration svg {
-  width:100%;
-  height:100%;
-  display:block;
-}
-
-.photo-credit {
-  display:block;
-  margin-top:7px;
-  color:#8a7454;
-  font-size:.72rem;
-  font-family:Georgia,'Times New Roman',serif;
-  font-style:italic;
-}
-
-.modal-photo {
-  width:100%;
-  aspect-ratio:16/9;
-  border-radius:20px;
-  background:var(--surface2);
-  display:block;
-  margin-bottom:18px;
-  overflow:hidden;
-}
-
-.modal-photo svg {
-  width:100%;
-  height:100%;
-  display:block;
-}
-
-.modal-photo-source {
-  font-size:.78rem;
-  color:var(--muted);
-}
-
-@media(max-width:900px) {
-  .catalog-tools { width:100%; }
-}
-
-@media(max-width:620px) {
-  .catalog-tools {
-    grid-template-columns:1fr;
-  }
-
-  .catalog-meta {
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .quick-nav {
-    overflow-x:auto;
-    flex-wrap:nowrap;
-    padding-bottom:3px;
-  }
-
-  .quick-nav button {
-    flex:0 0 auto;
-  }
-}
+.plant-illustration { width:100%; aspect-ratio:16/10; display:block; overflow:hidden; border-radius:4px; background:#e9ddc5; border:1px solid #c7b58f; box-shadow:inset 0 0 0 6px rgba(255,248,231,.34); }
+.plant-illustration svg { width:100%; height:100%; display:block; }
+.photo-credit { display:block; margin-top:7px; color:#8a7454; font-size:.72rem; font-family:Georgia,'Times New Roman',serif; font-style:italic; }
+.modal-photo { width:100%; aspect-ratio:16/9; border-radius:20px; background:var(--surface2); display:block; margin-bottom:18px; overflow:hidden; }
+.modal-photo svg { width:100%; height:100%; display:block; }
+.modal-photo-source { font-size:.78rem; color:var(--muted); }
+@media(max-width:900px) { .catalog-tools { width:100%; } }
+@media(max-width:620px) { .catalog-tools { grid-template-columns:1fr; } .catalog-meta { align-items:flex-start; flex-direction:column; } .quick-nav { overflow-x:auto; flex-wrap:nowrap; padding-bottom:3px; } .quick-nav button { flex:0 0 auto; } }
 </style>
 </head>
-
 <body>
 <div id="app">
-
   <header class="topbar">
     <div class="container nav">
-      <a href="#inicio" class="brand">
-        <span class="brand-mark">✦</span>
-        <span>Raízes & Ciência</span>
-      </a>
-
-      <nav class="navlinks">
-        <a href="#plantas">Plantas</a>
-        <a href="#historia">História</a>
-        <a href="#projeto">Projeto</a>
-      </nav>
+      <a href="#inicio" class="brand"><span class="brand-mark">✦</span><span>Raízes & Ciência</span></a>
+      <nav class="navlinks"><a href="#plantas">Plantas</a><a href="#historia">História</a><a href="#projeto">Projeto</a></nav>
     </div>
   </header>
 
   <main>
-
     <section class="hero" id="inicio">
       <div class="container grid-hero">
-
         <div>
           <span class="eyebrow">IFA · Inovação tecnológica</span>
-
           <h1>Plantas medicinais, tradição e ciência.</h1>
-
-          <p class="lede">
-            Um catálogo digital para conhecer plantas medicinais,
-            entender seus usos tradicionais e descobrir como a história
-            e a pesquisa científica se encontram.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#plantas">Explorar plantas</a>
-            <a class="btn btn-secondary" href="#projeto">Sobre o projeto</a>
-          </div>
+          <p class="lede">Um catálogo digital para conhecer plantas medicinais, entender seus usos tradicionais e descobrir como a história e a pesquisa científica se encontram.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#plantas">Explorar plantas</a><a class="btn btn-secondary" href="#projeto">Sobre o projeto</a></div>
         </div>
-
         <aside class="qr-card" aria-label="QR Code do projeto">
-          <div class="qr-top">
-            <strong>Acesso rápido</strong>
-            <span class="qr-badge">QR CODE</span>
-          </div>
-
-          <img
-            class="qr"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAS0AAAEtAQAAAAB1mAtDAAAC3UlEQVR4nO2aMXLjOhBE34iqgjP4BtRNoD0ZwZvRNyFvAGVkfQj9A1CWN9sNVnQVrEQqqIPm1KCn0aCJP/hspz9BwQ/sB9YCbDMzszMsFs3eWK6jnTe7MMrMzOxAbq+HIa1eUukkTUjSzCApAaWTpCit3/kR/kFBZijdui94TdCtfg4q3QqhrYJ8hfUT4JYLQ8EtYYzfiNshsOWKZfzMaJu9E+wbcXsZ7KkhKzAoO80hFpw0NakhJ+BmZifwczC52ztAd3tfhsjdzCweye0ImJMkZW4X6LJL/Sjb3oDBJEk6kNvrYY8pQx27Bac5ROoGKgBBTW0ZJEnTYFohRMt4SbU1omWX+sY0ZBfVCPiZYZfRUu2IZZf6iaYKcgK32JXaIdblzew6nHAJht2fHcjt9bCqIUEAveIuowX8HES3ejXWIUjVgFTVKJ0SIZqUCKoa0p6oJoL2uWIZeskyEGLpVt+aMasdEuJno6wQRCep1qU1UUVa6SWg2pHVS7LsEgz7EbipgpwA/3EdlbkFqdx9Wq7j3d16yWzzqVc8ktshsNsFzK3wES1vdvlQl11aTPvikdxeDqtbZhokpX5C1Yo95m12anDsKvWqUyZEfRWPoS42N3ZXL+kZi/i5xiLa+6U9H7J+Wo5pUKaGqfuRpr2zzF4QKTvN8LBie3DWqDHzmurvIHCaH38NVHPSVEFOAMsVZfax+94/8hAruESIh3J7NeyZh7gE0ElziMo8Lmta1BA/U+8fQrQ6bJ47x2samirICaBXvJ+5hYmCWy6Mhc0uANzseiy3V8Nqprr7kOlxo/nMDv3coDEDoFMiqFDzkCoszWrI583dw5XsGlKjgbZ8yBlguVDAJ6B+2X9nI/wyYLn+Oorb4bDF4unuF7uOcnX0SKkf20rdf4MFK2y9Rll2Sxh1tzc/h5bfIBrK04DMsF/gNaUhzylTD7241E9fsuZEY2cZ+3lP9Qf2A/sb2P8IupXn/eeUYAAAAABJRU5ErkJggg=="
-            alt="QR Code do projeto"
-          />
-
-          <p class="qr-note">
-            QR demonstrativo do trabalho. Na versão publicada,
-            troque o conteúdo do código pelo endereço final do site.
-          </p>
+          <div class="qr-top"><strong>Acesso rápido</strong><span class="qr-badge">QR CODE</span></div>
+          <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAS0AAAEtAQAAAAB1mAtDAAAC3UlEQVR4nO2aMXLjOhBE34iqgjP4BtRNoD0ZwZvRNyFvAGVkfQj9A1CWN9sNVnQVrEQqqIPm1KCn0aCJP/hspz9BwQ/sB9YCbDMzszMsFs3eWK6jnTe7MMrMzOxAbq+HIa1eUukkTUjSzCApAaWTpCit3/kR/kFBZijdui94TdCtfg4q3QqhrYJ8hfUT4JYLQ8EtYYzfiNshsOWKZfzMaJu9E+wbcXsZ7KkhKzAoO80hFpw0NakhJ+BmZifwczC52ztAd3tfhsjdzCweye0ImJMkZW4X6LJL/Sjb3oDBJEk6kNvrYY8pQx27Bac5ROoGKgBBTW0ZJEnTYFohRMt4SbU1omWX+sY0ZBfVCPiZYZfRUu2IZZf6iaYKcgK32JXaIdblzew6nHAJht2fHcjt9bCqIUEAveIuowX8HES3ejXWIUjVgFTVKJ0SIZqUCKoa0p6oJoL2uWIZeskyEGLpVt+aMasdEuJno6wQRCep1qU1UUVa6SWg2pHVS7LsEgz7EbipgpwA/3EdlbkFqdx9Wq7j3d16yWzzqVc8ktshsNsFzK3wES1vdvlQl11aTPvikdxeDqtbZhokpX5C1Yo95m12anDsKvWqUyZEfRWPoS42N3ZXL+kZi/i5xiLa+6U9H7J+Wo5pUKaGqfuRpr2zzF4QKTvN8LBie3DWqDHzmurvIHCaH38NVHPSVEFOAMsVZfax+94/8hAruESIh3J7NeyZh7gE0ElziMo8Lmta1BA/U+8fQrQ6bJ47x2samirICaBXvJ+5hYmCWy6Mhc0uANzseiy3V8Nqprr7kOlxo/nMDv3coDEDoFMiqFDzkCoszWrI583dw5XsGlKjgbZ8yBlguVDAJ6B+2X9nI/wyYLn+Oorb4bDF4unuF7uOcnX0SKkf20rdf4MFK2y9Rll2Sxh1tzc/h5bfIBrK04DMsF/gNaUhzylTD7241E9fsuZEY2cZ+3lP9Qf2A/sb2P8IupXn/eeUYAAAAABJRU5ErkJggg==" alt="QR Code do projeto" />
+          <p class="qr-note">QR demonstrativo do trabalho. Na versão publicada, troque o conteúdo do código pelo endereço final do site.</p>
         </aside>
-
       </div>
     </section>
 
     <section class="section" id="plantas">
       <div class="container">
-
         <div class="section-head">
-
-          <div>
-            <div class="kicker">Catálogo</div>
-            <h2>Encontre uma planta sem ficar rolando</h2>
-          </div>
-
+          <div><div class="kicker">Catálogo</div><h2>Encontre uma planta sem ficar rolando</h2></div>
           <div class="catalog-tools">
-
-            <label class="search" aria-label="Buscar planta">
-              <span>⌕</span>
-              <input
-                id="search"
-                type="search"
-                placeholder="Nome, espécie ou uso…"
-                autocomplete="off"
-              />
-            </label>
-
+            <label class="search" aria-label="Buscar planta"><span>⌕</span><input id="search" type="search" placeholder="Nome, espécie ou uso…" autocomplete="off" /></label>
             <label aria-label="Escolher uma planta" style="display:none">
               <select id="plantSelect" class="plant-select">
                 <option value="">🌿 Escolha uma planta…</option>
               </select>
             </label>
-
-            <button
-              class="btn btn-secondary"
-              id="clearFilters"
-              type="button"
-              style="display:none"
-            >
-              Limpar
-            </button>
-
+            <button class="btn btn-secondary" id="clearFilters" type="button" style="display:none">Limpar</button>
           </div>
         </div>
-
-        <div
-          class="quick-nav"
-          id="quickNav"
-          aria-label="Filtros rápidos por inicial"
-        ></div>
-
-        <div class="catalog-meta">
-          <span id="resultsCount">25 plantas</span>
-          <span>Fotos de referência · clique em “Ver ficha completa”</span>
-        </div>
-
+        <div class="quick-nav" id="quickNav" aria-label="Filtros rápidos por inicial"></div>
+        <div class="catalog-meta"><span id="resultsCount">25 plantas</span><span>Fotos de referência · clique em “Ver ficha completa”</span></div>
         <div class="plants-grid" id="plantGrid"></div>
-
       </div>
     </section>
 
     <section class="section" id="historia">
       <div class="container">
-
-        <div class="section-head">
-          <div>
-            <div class="kicker">Linha do tempo</div>
-            <h2>O uso das plantas atravessa séculos</h2>
-          </div>
-        </div>
-
+        <div class="section-head"><div><div class="kicker">Linha do tempo</div><h2>O uso das plantas atravessa séculos</h2></div></div>
         <div class="timeline">
-
-          <div class="time-item">
-            <div class="time">~ 4.000 a.C.</div>
-            <p>
-              Há evidências históricas associadas à babosa no Egito antigo,
-              mostrando que seu uso é muito anterior à medicina moderna.
-            </p>
-          </div>
-
-          <div class="time-item">
-            <div class="time">Antiguidade</div>
-            <p>
-              Camomila e erva-cidreira aparecem em diferentes tradições
-              medicinais do mundo antigo.
-            </p>
-          </div>
-
-          <div class="time-item">
-            <div class="time">1696–1753</div>
-            <p>
-              A hortelã-pimenta é identificada na Inglaterra e depois recebe
-              o nome científico <em>Mentha piperita</em>.
-            </p>
-          </div>
-
-          <div class="time-item">
-            <div class="time">Hoje</div>
-            <p>
-              Farmacopeias, universidades e órgãos de saúde estudam
-              plantas medicinais com métodos científicos e regras de segurança.
-            </p>
-          </div>
-
+          <div class="time-item"><div class="time">~ 4.000 a.C.</div><p>Há evidências históricas associadas à babosa no Egito antigo, mostrando que seu uso é muito anterior à medicina moderna.</p></div>
+          <div class="time-item"><div class="time">Antiguidade</div><p>Camomila e erva-cidreira aparecem em diferentes tradições medicinais do mundo antigo.</p></div>
+          <div class="time-item"><div class="time">1696–1753</div><p>A hortelã-pimenta é identificada na Inglaterra e depois recebe o nome científico <em>Mentha piperita</em>.</p></div>
+          <div class="time-item"><div class="time">Hoje</div><p>Farmacopeias, universidades e órgãos de saúde estudam plantas medicinais com métodos científicos e regras de segurança.</p></div>
         </div>
-
       </div>
     </section>
 
     <section class="section" id="projeto">
       <div class="container">
-
-        <div class="section-head">
-          <div>
-            <div class="kicker">O trabalho</div>
-            <h2>Tecnologia para organizar conhecimento</h2>
-          </div>
-        </div>
-
+        <div class="section-head"><div><div class="kicker">O trabalho</div><h2>Tecnologia para organizar conhecimento</h2></div></div>
         <div class="project">
-
-          <div class="info">
-            <h3>O que foi desenvolvido?</h3>
-
-            <p>
-              Um site responsivo com catálogo pesquisável, fichas interativas,
-              linha do tempo histórica e QR Code. A ideia é transformar a pesquisa
-              escolar em uma experiência simples de navegar pelo celular ou computador.
-            </p>
-
-            <p class="notice">
-              Conteúdo educativo: plantas medicinais podem ter riscos,
-              interações e contraindicações. As informações aqui não substituem
-              orientação de profissionais de saúde.
-            </p>
-          </div>
-
-          <div class="info">
-            <h3>Fontes para a pesquisa</h3>
-
-            <p>
-              O conteúdo foi organizado a partir de referências institucionais
-              e acadêmicas, priorizando informações botânicas, históricas e de uso racional.
-            </p>
-
-            <div class="sources">
-              <a
-                class="source"
-                href="https://www.gov.br/saude/pt-br/composicao/sectics/plantas-medicinais-e-fitoterapicos"
-                target="_blank"
-                rel="noopener"
-              >
-                Ministério da Saúde
-              </a>
-
-              <a
-                class="source"
-                href="https://www.ufmg.br/mhnjb/ceplamt/bancodeamostras/babosa/"
-                target="_blank"
-                rel="noopener"
-              >
-                UFMG · CEPLAMT
-              </a>
-
-              <a
-                class="source"
-                href="https://www.nccih.nih.gov/health/chamomile"
-                target="_blank"
-                rel="noopener"
-              >
-                NCCIH · Camomila
-              </a>
-
-              <a
-                class="source"
-                href="https://pubmed.ncbi.nlm.nih.gov/20178070/"
-                target="_blank"
-                rel="noopener"
-              >
-                PubMed · Boldo
-              </a>
-            </div>
-          </div>
-
+          <div class="info"><h3>O que foi desenvolvido?</h3><p>Um site responsivo com catálogo pesquisável, fichas interativas, linha do tempo histórica e QR Code. A ideia é transformar a pesquisa escolar em uma experiência simples de navegar pelo celular ou computador.</p><p class="notice">Conteúdo educativo: plantas medicinais podem ter riscos, interações e contraindicações. As informações aqui não substituem orientação de profissionais de saúde.</p></div>
+          <div class="info"><h3>Fontes para a pesquisa</h3><p>O conteúdo foi organizado a partir de referências institucionais e acadêmicas, priorizando informações botânicas, históricas e de uso racional.</p><div class="sources"><a class="source" href="https://www.gov.br/saude/pt-br/composicao/sectics/plantas-medicinais-e-fitoterapicos" target="_blank" rel="noopener">Ministério da Saúde</a><a class="source" href="https://www.ufmg.br/mhnjb/ceplamt/bancodeamostras/babosa/" target="_blank" rel="noopener">UFMG · CEPLAMT</a><a class="source" href="https://www.nccih.nih.gov/health/chamomile" target="_blank" rel="noopener">NCCIH · Camomila</a><a class="source" href="https://pubmed.ncbi.nlm.nih.gov/20178070/" target="_blank" rel="noopener">PubMed · Boldo</a></div></div>
         </div>
-
       </div>
     </section>
-
   </main>
 
-  <footer>
-    <div class="container">
-      Projeto escolar · IFA · Subtema: Inovação Tecnológica · Plantas medicinais
-    </div>
-  </footer>
+  <footer><div class="container">Projeto escolar · IFA · Subtema: Inovação Tecnológica · Plantas medicinais · Turma: 102 · Criador: Abner V. Fernandes</div></footer>
 
-  <div
-    class="modal"
-    id="modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modalTitle"
-    onclick="backdrop(event)"
-  >
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="backdrop(event)">
     <div class="sheet">
-
-      <div class="sheet-top">
-        <div>
-          <div class="kicker">Ficha da planta</div>
-          <h2 id="modalTitle">Planta</h2>
-        </div>
-
-        <button
-          class="close"
-          onclick="closePlant()"
-          aria-label="Fechar"
-        >
-          ✕
-        </button>
-      </div>
-
-      <div class="sheet-content">
-
-        <img
-          id="modalPhoto"
-          class="modal-photo"
-          alt="Foto da planta"
-        />
-
-        <p
-          id="modalPhotoSource"
-          class="modal-photo-source"
-        ></p>
-
-        <p
-          id="modalScientific"
-          class="scientific"
-        ></p>
-
-        <p
-          id="modalSummary"
-          class="lede"
-          style="margin:0;max-width:none;"
-        ></p>
-
-        <div class="detail-grid">
-
-          <div class="detail">
-            <strong>Quando é usada?</strong>
-            <span id="modalUse"></span>
-          </div>
-
-          <div class="detail">
-            <strong>História / descoberta</strong>
-            <span id="modalHistory"></span>
-          </div>
-
-          <div class="detail">
-            <strong>Parte mais conhecida</strong>
-            <span id="modalPart"></span>
-          </div>
-
-          <div class="detail">
-            <strong>Origem</strong>
-            <span id="modalOrigin"></span>
-          </div>
-
-        </div>
-
-        <div
-          class="notice"
-          id="modalCaution"
-        ></div>
-
-      </div>
+      <div class="sheet-top"><div><div class="kicker">Ficha da planta</div><h2 id="modalTitle">Planta</h2></div><button class="close" onclick="closePlant()" aria-label="Fechar">✕</button></div>
+      <div class="sheet-content"><div id="modalPhoto" class="modal-photo" role="img" aria-label="Ilustração botânica da planta"></div><p id="modalPhotoSource" class="modal-photo-source"></p><p id="modalScientific" class="scientific"></p><p id="modalSummary" class="lede" style="margin:0;max-width:none;"></p><div class="detail-grid"><div class="detail"><strong>Quando é usada?</strong><span id="modalUse"></span></div><div class="detail"><strong>História / descoberta</strong><span id="modalHistory"></span></div><div class="detail"><strong>Parte mais conhecida</strong><span id="modalPart"></span></div><div class="detail"><strong>Origem</strong><span id="modalOrigin"></span></div></div><div class="notice" id="modalCaution"></div></div>
     </div>
   </div>
-
 </div>
-
 <script>
 const plants = [
 
@@ -1438,178 +593,53 @@ const plants = [
   part:"Casca e raízes",
   origin:"Amazônia",
   caution:"Pode interagir com medicamentos; procure orientação profissional."
+},
+
+{
+  id:"linhaca",
+  name:"Linhaça",
+  scientific:"Linum usitatissimum",
+  tag:"sementes • tradição",
+  summary:"Sementes pequenas e ricas em fibras, muito usadas na alimentação.",
+  use:"Consumida principalmente como alimento; também aparece em práticas tradicionais e em estudos sobre seus componentes.",
+  history:"É cultivada há milhares de anos, sendo uma das plantas mais antigas associadas à produção de fibras e sementes.",
+  part:"Sementes",
+  origin:"Europa e Ásia",
+  caution:"Deve ser consumida com quantidade adequada de líquidos; pessoas com condições específicas devem buscar orientação profissional."
+},
+
+{
+  id:"quebra-pedra",
+  name:"Quebra-pedra",
+  scientific:"Phyllanthus niruri",
+  tag:"urinário • tradição",
+  summary:"Pequena planta muito conhecida na medicina popular brasileira.",
+  use:"Tradicionalmente utilizada em preparações caseiras relacionadas ao sistema urinário; as evidências dependem do uso específico.",
+  history:"Espécies do gênero Phyllanthus são conhecidas em diferentes tradições medicinais tropicais há muitos anos.",
+  part:"Partes aéreas",
+  origin:"Regiões tropicais das Américas e outras áreas tropicais",
+  caution:"O uso medicinal não substitui avaliação profissional, especialmente em casos de dor ou sintomas urinários persistentes."
 }
 
 ];
 
 plants.push(
-  {
-    "id":"calendula",
-    "name":"Calêndula",
-    "scientific":"Calendula officinalis",
-    "tag":"pele • flores",
-    "summary":"Flor de cor alaranjada muito conhecida em jardins e em preparações tradicionais para a pele.",
-    "use":"Tradicionalmente utilizada em preparações tópicas e cosméticas; as evidências variam conforme o uso e o preparo.",
-    "history":"É cultivada há séculos na Europa e na região do Mediterrâneo, com uso tradicional em cosméticos e cuidados da pele.",
-    "part":"Flores",
-    "origin":"Europa meridional e Mediterrâneo; cultivada em várias regiões",
-    "caution":"Pode causar irritação ou alergia em pessoas sensíveis à família Asteraceae.",
-    "photo":"https://www.pflanzenfreunde.com/heilpflanzen-bilder/ringelblume_heilpflanze.jpg",
-    "photoSource":"https://commons.wikimedia.org/wiki/Category:Calendula_officinalis"
-  },
-
-  {
-    "id":"tanchagem",
-    "name":"Tanchagem",
-    "scientific":"Plantago major",
-    "tag":"folhas • tradição",
-    "summary":"Planta de folhas largas que cresce em diferentes ambientes e aparece em práticas tradicionais.",
-    "use":"Tradicionalmente utilizada em preparações caseiras e tópicas; a evidência científica depende do uso específico.",
-    "history":"É conhecida há séculos em tradições europeias e asiáticas e hoje está amplamente distribuída pelo mundo.",
-    "part":"Folhas",
-    "origin":"Europa e Ásia; atualmente cosmopolita",
-    "caution":"Plantas colhidas na natureza podem estar contaminadas; identificação correta é essencial.",
-    "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Plantago_major_002.JPG/960px-Plantago_major_002.JPG",
-    "photoSource":"https://commons.wikimedia.org/wiki/File:Plantago_major_002.JPG"
-  },
-
-  {
-    "id":"hibisco",
-    "name":"Hibisco",
-    "scientific":"Hibiscus sabdariffa",
-    "tag":"infusão • flores",
-    "summary":"Planta conhecida pelos cálices vermelhos usados em infusões e bebidas de sabor ácido.",
-    "use":"Muito utilizado em bebidas e infusões; seus compostos são estudados em diferentes contextos de saúde.",
-    "history":"Tem origem africana e hoje é cultivado em várias regiões tropicais e subtropicais.",
-    "part":"Cálices das flores",
-    "origin":"África tropical; cultivado em regiões tropicais",
-    "caution":"Pode não ser adequado para todas as pessoas ou em combinação com alguns medicamentos.",
-    "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Hibiscus_sabdariffa_plant.jpg/960px-Hibiscus_sabdariffa_plant.jpg",
-    "photoSource":"https://commons.wikimedia.org/wiki/File:Hibiscus_sabdariffa_plant.jpg"
-  },
-
-  {
-    "id":"manjericao",
-    "name":"Manjericão",
-    "scientific":"Ocimum basilicum",
-    "tag":"culinária • aroma",
-    "summary":"Erva aromática de folhas verdes muito usada na culinária e em preparações tradicionais.",
-    "use":"Seu uso principal é culinário; também aparece em algumas práticas tradicionais de infusão.",
-    "history":"Tem longa história de cultivo e uso no sul da Ásia e foi difundido para muitas outras regiões.",
-    "part":"Folhas",
-    "origin":"Sul da Ásia e regiões tropicais; amplamente cultivado",
-    "caution":"Óleos essenciais são muito mais concentrados que o uso culinário e exigem cuidado.",
-    "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Basil-Basilico-Ocimum_basilicum-albahaca.jpg/1024px-Basil-Basilico-Ocimum_basilicum-albahaca.jpg",
-    "photoSource":"https://commons.wikimedia.org/wiki/File:Basil-Basilico-Ocimum_basilicum-albahaca.jpg"
-  },
-
-  {
-    "id":"salvia",
-    "name":"Sálvia",
-    "scientific":"Salvia officinalis",
-    "tag":"aroma • tradição",
-    "summary":"Erva aromática de folhas aveludadas e esverdeadas, tradicionalmente usada na culinária.",
-    "use":"Usada como tempero e em algumas preparações tradicionais; pesquisas estudam seus compostos em diferentes contextos.",
-    "history":"É nativa do Mediterrâneo e é cultivada há muitos séculos por seu aroma e uso culinário.",
-    "part":"Folhas",
-    "origin":"Região do Mediterrâneo; hoje cultivada em várias regiões",
-    "caution":"Preparações concentradas exigem mais cautela que o uso culinário da erva.",
-    "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Salvia_officinalis_02_by_Line1.JPG/500px-Salvia_officinalis_02_by_Line1.JPG",
-    "photoSource":"https://commons.wikimedia.org/wiki/File:Salvia_officinalis_02_by_Line1.JPG"
-  },
-
-  {
-    "id":"tomilho",
-    "name":"Tomilho",
-    "scientific":"Thymus vulgaris",
-    "tag":"aroma • tradição",
-    "summary":"Pequena erva aromática de folhas miúdas e flores claras, muito usada como tempero.",
-    "use":"Principalmente culinário; também aparece em tradições relacionadas ao conforto respiratório.",
-    "history":"É cultivado há séculos na região do Mediterrâneo e faz parte da culinária europeia tradicional.",
-    "part":"Folhas e ramos",
-    "origin":"Mediterrâneo e Europa meridional",
-    "caution":"O óleo essencial é concentrado e não equivale ao uso culinário do tomilho.",
-    "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/THYMUS_VULGARIS_-_AGUDA_-_IB-910_%28Tim%C3%B3%29.JPG/1280px-THYMUS_VULGARIS_-_AGUDA_-_IB-910_%28Tim%C3%B3%29.JPG",
-    "photoSource":"https://commons.wikimedia.org/wiki/Category:Thymus_vulgaris"
-  },
-
-  {
-    "id":"equinacea",
-    "name":"Equinácea",
-    "scientific":"Echinacea purpurea",
-    "tag":"flores • tradição",
-    "summary":"Planta de flores roxas muito conhecida como ornamental e presente em produtos fitoterápicos.",
-    "use":"É estudada principalmente em relação a sintomas de resfriados, com resultados científicos variados.",
-    "history":"É nativa da América do Norte e tem histórico de uso tradicional por povos da região.",
-    "part":"Partes aéreas e raízes",
-    "origin":"América do Norte",
-    "caution":"Pode provocar reações alérgicas em algumas pessoas.",
-    "photo":"https://miro.medium.com/v2/resize%3Afit%3A1200/1%2A3432OQvv_fDXUwm8hRsVgg.png",
-    "photoSource":"https://commons.wikimedia.org/wiki/Category:Echinacea_purpurea"
-  },
-
-  {
-    "id":"dente-de-leao",
-    "name":"Dente-de-leão",
-    "scientific":"Taraxacum officinale",
-    "tag":"digestão • tradição",
-    "summary":"Planta de folhas recortadas e flores amarelas, comum em várias regiões do mundo.",
-    "use":"Tradicionalmente utilizada em alimentos e infusões; alguns usos medicinais são estudados cientificamente.",
-    "history":"É conhecida há séculos em tradições europeias e asiáticas e atualmente ocorre em muitas partes do mundo.",
-    "part":"Folhas e raízes",
-    "origin":"Europa e Ásia; hoje cosmopolita",
-    "caution":"Pode interagir com alguns medicamentos; uso medicinal deve considerar orientação adequada.",
-    "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Taraxacum_officinale_Weber.JPG/960px-Taraxacum_officinale_Weber.JPG",
-    "photoSource":"https://commons.wikimedia.org/wiki/Category:Taraxacum_officinale"
-  },
-
-  {
-    "id":"espinheira-santa",
-    "name":"Espinheira-santa",
-    "scientific":"Maytenus ilicifolia",
-    "tag":"estômago • Brasil",
-    "summary":"Arbusto sul-americano de folhas espinhosas, importante na tradição medicinal brasileira.",
-    "use":"Tradicionalmente utilizada para desconfortos gástricos e sintomas de dispepsia em preparações específicas.",
-    "history":"É nativa do sul da América do Sul e tem longa história de uso tradicional no Brasil e em países vizinhos.",
-    "part":"Folhas",
-    "origin":"Sul do Brasil, Paraguai, Uruguai e Argentina",
-    "caution":"O uso medicinal deve ser feito com orientação adequada, especialmente durante a gestação.",
-    "photo":"https://photos1.blogger.com/blogger2/1358/1337/1600/178.jpg",
-    "photoSource":"https://commons.wikimedia.org/wiki/Category:Maytenus_ilicifolia"
-  },
-
-  {
-    "id":"maracuja-roxo",
-    "name":"Maracujá-roxo",
-    "scientific":"Passiflora incarnata",
-    "tag":"relaxamento • tradição",
-    "summary":"Trepadeira de flores roxas conhecida em diferentes tradições pelo uso associado ao relaxamento.",
-    "use":"É estudada em preparações específicas relacionadas ao relaxamento e ao sono; os resultados variam conforme a preparação.",
-    "history":"É nativa da América do Norte e faz parte do gênero Passiflora, conhecido pelas flores muito características.",
-    "part":"Partes aéreas",
-    "origin":"América do Norte e regiões próximas",
-    "caution":"Pode causar sonolência e interagir com alguns medicamentos.",
-    "photo":"https://asiabiopharm.com/wa-data/public/shop/products/41/50/5041/images/11398/11398.970.png",
-    "photoSource":"https://commons.wikimedia.org/wiki/Category:Passiflora_incarnata"
-  }
+  {"id":"calendula","name":"Calêndula","scientific":"Calendula officinalis","tag":"pele • flores","summary":"Flor de cor alaranjada muito conhecida em jardins e em preparações tradicionais para a pele.","use":"Tradicionalmente utilizada em preparações tópicas e cosméticas; as evidências variam conforme o uso e o preparo.","history":"É cultivada há séculos na Europa e na região do Mediterrâneo, com uso tradicional em cosméticos e cuidados da pele.","part":"Flores","origin":"Europa meridional e Mediterrâneo; cultivada em várias regiões","caution":"Pode causar irritação ou alergia em pessoas sensíveis à família Asteraceae.","photo":"https://www.pflanzenfreunde.com/heilpflanzen-bilder/ringelblume_heilpflanze.jpg","photoSource":"https://commons.wikimedia.org/wiki/Category:Calendula_officinalis"},
+  {"id":"tanchagem","name":"Tanchagem","scientific":"Plantago major","tag":"folhas • tradição","summary":"Planta de folhas largas que cresce em diferentes ambientes e aparece em práticas tradicionais.","use":"Tradicionalmente utilizada em preparações caseiras e tópicas; a evidência científica depende do uso específico.","history":"É conhecida há séculos em tradições europeias e asiáticas e hoje está amplamente distribuída pelo mundo.","part":"Folhas","origin":"Europa e Ásia; atualmente cosmopolita","caution":"Plantas colhidas na natureza podem estar contaminadas; identificação correta é essencial.","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Plantago_major_002.JPG/960px-Plantago_major_002.JPG","photoSource":"https://commons.wikimedia.org/wiki/File:Plantago_major_002.JPG"},
+  {"id":"hibisco","name":"Hibisco","scientific":"Hibiscus sabdariffa","tag":"infusão • flores","summary":"Planta conhecida pelos cálices vermelhos usados em infusões e bebidas de sabor ácido.","use":"Muito utilizado em bebidas e infusões; seus compostos são estudados em diferentes contextos de saúde.","history":"Tem origem africana e hoje é cultivado em várias regiões tropicais e subtropicais.","part":"Cálices das flores","origin":"África tropical; cultivado em regiões tropicais","caution":"Pode não ser adequado para todas as pessoas ou em combinação com alguns medicamentos.","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Hibiscus_sabdariffa_plant.jpg/960px-Hibiscus_sabdariffa_plant.jpg","photoSource":"https://commons.wikimedia.org/wiki/File:Hibiscus_sabdariffa_plant.jpg"},
+  {"id":"manjericao","name":"Manjericão","scientific":"Ocimum basilicum","tag":"culinária • aroma","summary":"Erva aromática de folhas verdes muito usada na culinária e em preparações tradicionais.","use":"Seu uso principal é culinário; também aparece em algumas práticas tradicionais de infusão.","history":"Tem longa história de cultivo e uso no sul da Ásia e foi difundido para muitas outras regiões.","part":"Folhas","origin":"Sul da Ásia e regiões tropicais; amplamente cultivado","caution":"Óleos essenciais são muito mais concentrados que o uso culinário e exigem cuidado.","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Basil-Basilico-Ocimum_basilicum-albahaca.jpg/1024px-Basil-Basilico-Ocimum_basilicum-albahaca.jpg","photoSource":"https://commons.wikimedia.org/wiki/File:Basil-Basilico-Ocimum_basilicum-albahaca.jpg"},
+  {"id":"salvia","name":"Sálvia","scientific":"Salvia officinalis","tag":"aroma • tradição","summary":"Erva aromática de folhas aveludadas e esverdeadas, tradicionalmente usada na culinária.","use":"Usada como tempero e em algumas preparações tradicionais; pesquisas estudam seus compostos em diferentes contextos.","history":"É nativa do Mediterrâneo e é cultivada há muitos séculos por seu aroma e uso culinário.","part":"Folhas","origin":"Região do Mediterrâneo; hoje cultivada em várias regiões","caution":"Preparações concentradas exigem mais cautela que o uso culinário da erva.","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Salvia_officinalis_02_by_Line1.JPG/500px-Salvia_officinalis_02_by_Line1.JPG","photoSource":"https://commons.wikimedia.org/wiki/File:Salvia_officinalis_02_by_Line1.JPG"},
+  {"id":"tomilho","name":"Tomilho","scientific":"Thymus vulgaris","tag":"aroma • tradição","summary":"Pequena erva aromática de folhas miúdas e flores claras, muito usada como tempero.","use":"Principalmente culinário; também aparece em tradições relacionadas ao conforto respiratório.","history":"É cultivado há séculos na região do Mediterrâneo e faz parte da culinária europeia tradicional.","part":"Folhas e ramos","origin":"Mediterrâneo e Europa meridional","caution":"O óleo essencial é concentrado e não equivale ao uso culinário do tomilho.","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/THYMUS_VULGARIS_-_AGUDA_-_IB-910_%28Tim%C3%B3%29.JPG/1280px-THYMUS_VULGARIS_-_AGUDA_-_IB-910_%28Tim%C3%B3%29.JPG","photoSource":"https://commons.wikimedia.org/wiki/Category:Thymus_vulgaris"},
+  {"id":"equinacea","name":"Equinácea","scientific":"Echinacea purpurea","tag":"flores • tradição","summary":"Planta de flores roxas muito conhecida como ornamental e presente em produtos fitoterápicos.","use":"É estudada principalmente em relação a sintomas de resfriados, com resultados científicos variados.","history":"É nativa da América do Norte e tem histórico de uso tradicional por povos da região.","part":"Partes aéreas e raízes","origin":"América do Norte","caution":"Pode provocar reações alérgicas em algumas pessoas.","photo":"https://miro.medium.com/v2/resize%3Afit%3A1200/1%2A3432OQvv_fDXUwm8hRsVgg.png","photoSource":"https://commons.wikimedia.org/wiki/Category:Echinacea_purpurea"},
+  {"id":"dente-de-leao","name":"Dente-de-leão","scientific":"Taraxacum officinale","tag":"digestão • tradição","summary":"Planta de folhas recortadas e flores amarelas, comum em várias regiões do mundo.","use":"Tradicionalmente utilizada em alimentos e infusões; alguns usos medicinais são estudados cientificamente.","history":"É conhecida há séculos em tradições europeias e asiáticas e atualmente ocorre em muitas partes do mundo.","part":"Folhas e raízes","origin":"Europa e Ásia; hoje cosmopolita","caution":"Pode interagir com alguns medicamentos; uso medicinal deve considerar orientação adequada.","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Taraxacum_officinale_Weber.JPG/960px-Taraxacum_officinale_Weber.JPG","photoSource":"https://commons.wikimedia.org/wiki/Category:Taraxacum_officinale"},
+  {"id":"espinheira-santa","name":"Espinheira-santa","scientific":"Maytenus ilicifolia","tag":"estômago • Brasil","summary":"Arbusto sul-americano de folhas espinhosas, importante na tradição medicinal brasileira.","use":"Tradicionalmente utilizada para desconfortos gástricos e sintomas de dispepsia em preparações específicas.","history":"É nativa do sul da América do Sul e tem longa história de uso tradicional no Brasil e em países vizinhos.","part":"Folhas","origin":"Sul do Brasil, Paraguai, Uruguai e Argentina","caution":"O uso medicinal deve ser feito com orientação adequada, especialmente durante a gestação.","photo":"https://photos1.blogger.com/blogger2/1358/1337/1600/178.jpg","photoSource":"https://commons.wikimedia.org/wiki/Category:Maytenus_ilicifolia"},
+  {"id":"maracuja-roxo","name":"Maracujá-roxo","scientific":"Passiflora incarnata","tag":"relaxamento • tradição","summary":"Trepadeira de flores roxas conhecida em diferentes tradições pelo uso associado ao relaxamento.","use":"É estudada em preparações específicas relacionadas ao relaxamento e ao sono; os resultados variam conforme a preparação.","history":"É nativa da América do Norte e faz parte do gênero Passiflora, conhecido pelas flores muito características.","part":"Partes aéreas","origin":"América do Norte e regiões próximas","caution":"Pode causar sonolência e interagir com alguns medicamentos.","photo":"https://asiabiopharm.com/wa-data/public/shop/products/41/50/5041/images/11398/11398.970.png","photoSource":"https://commons.wikimedia.org/wiki/Category:Passiflora_incarnata"}
 );
-
 const latestPlants = new Map();
-
-plants.forEach(p => latestPlants.set(p.id, p));
-
+plants.forEach(p=>latestPlants.set(p.id,p));
 plants.length = 0;
-
-latestPlants.forEach(p => plants.push(p));
-
-plants.forEach(p => {
-  if (!p.photo) {
-    p.photo =
-      'https://loremflickr.com/800/500/' +
-      encodeURIComponent(p.name + ' ' + p.scientific + ' plant');
-  }
-});
-
+latestPlants.forEach(p=>plants.push(p));
+plants.forEach(p=>{ if(!p.photo) p.photo='https://loremflickr.com/800/500/' + encodeURIComponent(p.name + ' ' + p.scientific + ' plant'); });
 let activeInitial = 'TODAS';
 let activeQuery = '';
 
@@ -1620,639 +650,100 @@ const quickNav = document.getElementById('quickNav');
 const resultsCount = document.getElementById('resultsCount');
 const clearFilters = document.getElementById('clearFilters');
 
-function normalize(text) {
-  return (text || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase();
-}
-
-function makeFallback(name) {
+function normalize(text){ return (text||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(); }
+function makeFallback(name){
   const label = name.slice(0,1).toUpperCase();
-
-  return 'data:image/svg+xml;charset=UTF-8,' +
-    encodeURIComponent(`
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
-        <rect width="800" height="500" fill="#dfeeda"/>
-        <path
-          d="M400 500V150M400 270L250 190M400 315l165-92M400 350l-125 95M400 215l120-75"
-          stroke="#4d8654"
-          stroke-width="18"
-          stroke-linecap="round"
-        />
-        <g fill="#86bd76" stroke="#4d8654" stroke-width="8">
-          <ellipse cx="250" cy="190" rx="45" ry="85" transform="rotate(-45 250 190)"/>
-          <ellipse cx="565" cy="223" rx="45" ry="85" transform="rotate(48 565 223)"/>
-          <ellipse cx="278" cy="445" rx="44" ry="80" transform="rotate(-54 278 445)"/>
-          <ellipse cx="520" cy="140" rx="42" ry="78" transform="rotate(50 520 140)"/>
-        </g>
-        <circle cx="400" cy="148" r="34" fill="#e7b63b"/>
-        <text
-          x="400"
-          y="80"
-          text-anchor="middle"
-          font-family="Arial"
-          font-size="34"
-          font-weight="700"
-          fill="#315f38"
-        >
-          ${label}
-        </text>
-      </svg>
-    `);
+  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#dfeeda"/><path d="M400 500V150M400 270L250 190M400 315l165-92M400 350l-125 95M400 215l120-75" stroke="#4d8654" stroke-width="18" stroke-linecap="round"/><g fill="#86bd76" stroke="#4d8654" stroke-width="8"><ellipse cx="250" cy="190" rx="45" ry="85" transform="rotate(-45 250 190)"/><ellipse cx="565" cy="223" rx="45" ry="85" transform="rotate(48 565 223)"/><ellipse cx="278" cy="445" rx="44" ry="80" transform="rotate(-54 278 445)"/><ellipse cx="520" cy="140" rx="42" ry="78" transform="rotate(50 520 140)"/></g><circle cx="400" cy="148" r="34" fill="#e7b63b"/><text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#315f38">${label}</text></svg>`);
 }
-
-function plantDrawing(p, compact = false) {
-
+function plantDrawing(p, compact=false){
   const key = normalize(p.id || p.name);
-
-  const hash = [...key].reduce(
-    (a, c) => a + c.charCodeAt(0),
-    0
-  );
-
-  const type =
-    p.tag.includes('flores') ||
-    p.tag.includes('pele') ||
-    p.tag.includes('calma')
-      ? 'flower'
-      : p.tag.includes('fruto') ||
-        ['roma','goiaba','pitanga','acerola','graviola'].includes(p.id)
-      ? 'fruit'
-      : p.tag.includes('árvore') ||
-        ['eucalipto','canela','jatoba','ipe-roxo'].includes(p.id)
-      ? 'tree'
-      : p.tag.includes('raízes') ||
-        ['gengibre','curcuma'].includes(p.id)
-      ? 'root'
-      : p.tag.includes('especiaria') ||
-        ['alho','cebola'].includes(p.id)
-      ? 'bulb'
-      : ['capim-limao','erva-doce','funcho'].includes(p.id)
-      ? 'grass'
-      : p.tag.includes('Amazônia') ||
-        p.id === 'unha-de-gato' ||
-        p.id === 'guaco'
-      ? 'vine'
-      : 'herb';
-
-  const leaf = (
-    x,
-    y,
-    rx,
-    ry,
-    r,
-    c = '#5f9d62'
-  ) =>
-    `<ellipse
-      cx="${x}"
-      cy="${y}"
-      rx="${rx}"
-      ry="${ry}"
-      transform="rotate(${r} ${x} ${y})"
-      fill="${c}"
-      stroke="#3f7047"
-      stroke-width="3"
-    />`;
-
-  const flower = (cx, cy, color) =>
-    `<g fill="${color}" stroke="#7a5b37" stroke-width="2">
-      ${[0,60,120,180,240,300]
-        .map(a => {
-          const rad = a * Math.PI / 180;
-
-          return `<ellipse
-            cx="${cx + Math.cos(rad) * 25}"
-            cy="${cy + Math.sin(rad) * 25}"
-            rx="15"
-            ry="29"
-            transform="rotate(
-              ${a + 90}
-              ${cx + Math.cos(rad) * 25}
-              ${cy + Math.sin(rad) * 25}
-            )"
-          />`;
-        })
-        .join('')}
-      <circle
-        cx="${cx}"
-        cy="${cy}"
-        r="13"
-        fill="#d9a936"
-      />
-    </g>`;
-
-  let art = '';
-
-  if (type === 'flower') {
-
-    art = `
-      <path
-        d="M160 205V115"
-        stroke="#3f7047"
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      ${leaf(120,150,28,55,-55)}
-      ${leaf(200,160,28,55,55)}
-      ${flower(
-        160,
-        92,
-        hash % 2 ? '#d98b9a' : '#d6a14a'
-      )}
-    `;
-
-  } else if (type === 'fruit') {
-
-    art = `
-      <path
-        d="M160 205V78"
-        stroke="#3f7047"
-        stroke-width="8"
-        stroke-linecap="round"
-      />
-      ${leaf(112,120,30,58,-50)}
-      ${leaf(208,135,30,58,48)}
-      <circle
-        cx="${150 + hash % 25}"
-        cy="120"
-        r="26"
-        fill="#d26a4d"
-      />
-      <circle
-        cx="${178 + hash % 18}"
-        cy="151"
-        r="23"
-        fill="#7fba5c"
-      />
-    `;
-
-  } else if (type === 'tree') {
-
-    art = `
-      <path
-        d="M160 205V102"
-        stroke="#72583e"
-        stroke-width="18"
-        stroke-linecap="round"
-      />
-      ${leaf(110,105,42,65,-50)}
-      ${leaf(208,105,42,65,50)}
-      ${leaf(136,72,38,57,-18)}
-      ${leaf(187,65,38,57,18)}
-    `;
-
-  } else if (type === 'root') {
-
-    art = `
-      <path
-        d="M160 70V150"
-        stroke="#4e7e50"
-        stroke-width="9"
-      />
-      ${leaf(124,100,26,55,-48)}
-      ${leaf(198,106,26,55,48)}
-      <path
-        d="
-          M160 145c-18 30-40 42-55 60
-          M160 145c20 30 43 42 59 60
-          M160 151v52
-        "
-        stroke="#9a6b43"
-        stroke-width="6"
-        fill="none"
-        stroke-linecap="round"
-      />
-    `;
-
-  } else if (type === 'bulb') {
-
-    art = `
-      <path
-        d="M160 197V92"
-        stroke="#3f7047"
-        stroke-width="8"
-      />
-      ${leaf(124,115,27,58,-48)}
-      ${leaf(196,115,27,58,48)}
-      <path
-        d="M128 182c15 24 49 31 64 0"
-        fill="#e5c07a"
-        stroke="#9c6c3f"
-        stroke-width="5"
-      />
-    `;
-
-  } else if (type === 'grass') {
-
-    art = `
-      <path
-        d="
-          M160 205C150 150 123 104 105 70
-          M160 205C168 151 194 104 215 70
-          M160 205C158 145 159 93 160 48
-        "
-        stroke="#4d8d57"
-        stroke-width="9"
-        fill="none"
-        stroke-linecap="round"
-      />
-    `;
-
-  } else if (type === 'vine') {
-
-    art = `
-      <path
-        d="
-          M156 205C150 160 168 132 158 104
-          C149 78 168 59 180 47
-        "
-        stroke="#39734a"
-        stroke-width="8"
-        fill="none"
-        stroke-linecap="round"
-      />
-      ${leaf(126,164,25,53,-50)}
-      ${leaf(198,145,25,53,50)}
-      ${leaf(128,107,25,53,-55)}
-      ${leaf(203,84,25,53,52)}
-      ${leaf(154,60,23,49,-5)}
-    `;
-
-  } else {
-
-    art = `
-      <path
-        d="
-          M160 205V68
-          M160 120L100 88
-          M160 145L96 150
-          M160 110L220 74
-          M160 175L225 154
-        "
-        stroke="#3f7047"
-        stroke-width="8"
-        fill="none"
-        stroke-linecap="round"
-      />
-      ${leaf(98,87,24,47,-45)}
-      ${leaf(97,151,24,47,-72)}
-      ${leaf(222,75,24,47,48)}
-      ${leaf(225,155,24,47,67)}
-      ${leaf(160,67,24,46,0)}
-    `;
-  }
-
-  const annotations =
-    '<g fill="#6d5940" font-family="Georgia,serif" font-size="9" letter-spacing="1">' +
-      '<path d="M72 62H22" stroke="#887459" stroke-width="1.5"/>' +
-      '<text x="7" y="59">FOLHAS</text>' +
-
-      '<path d="M246 88H307" stroke="#887459" stroke-width="1.5"/>' +
-      '<text x="251" y="83">' +
-        (
-          type === 'flower'
-            ? 'FLOR'
-            : type === 'fruit'
-            ? 'FRUTO'
-            : type === 'root'
-            ? 'RAIZ'
-            : type === 'bulb'
-            ? 'BULBO'
-            : 'PARTE'
-        ) +
-      '</text>' +
-
-      '<path d="M80 186H22" stroke="#887459" stroke-width="1.5"/>' +
-      '<text x="7" y="181">CAULE</text>' +
-    '</g>';
-
+  const hash = [...key].reduce((a,c)=>a+c.charCodeAt(0),0);
+  const type = p.tag.includes('flores') || p.tag.includes('pele') || p.tag.includes('calma') ? 'flower' : p.tag.includes('fruto') || ['roma','goiaba','pitanga','acerola','graviola'].includes(p.id) ? 'fruit' : p.tag.includes('árvore') || ['eucalipto','canela','jatoba','ipe-roxo'].includes(p.id) ? 'tree' : p.tag.includes('raízes') || ['gengibre','curcuma'].includes(p.id) ? 'root' : p.tag.includes('especiaria') || ['alho','cebola'].includes(p.id) ? 'bulb' : ['capim-limao','erva-doce','funcho'].includes(p.id) ? 'grass' : p.tag.includes('Amazônia') || p.id==='unha-de-gato' || p.id==='guaco' ? 'vine' : 'herb';
+  const leaf = (x,y,rx,ry,r,c='#5f9d62') => `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" transform="rotate(${r} ${x} ${y})" fill="${c}" stroke="#3f7047" stroke-width="3"/>`;
+  const flower = (cx,cy,color) => `<g fill="${color}" stroke="#7a5b37" stroke-width="2">${[0,60,120,180,240,300].map(a=>{const rad=a*Math.PI/180;return `<ellipse cx="${cx+Math.cos(rad)*25}" cy="${cy+Math.sin(rad)*25}" rx="15" ry="29" transform="rotate(${a+90} ${cx+Math.cos(rad)*25} ${cy+Math.sin(rad)*25})"/>`;}).join('')}<circle cx="${cx}" cy="${cy}" r="13" fill="#d9a936"/></g>`;
+  let art='';
+  if(type==='flower'){ art=`<path d="M160 205V115" stroke="#3f7047" stroke-width="8" stroke-linecap="round"/>${leaf(120,150,28,55,-55)}${leaf(200,160,28,55,55)}${flower(160,92, hash%2 ? '#d98b9a' : '#d6a14a')}`; }
+  else if(type==='fruit'){ art=`<path d="M160 205V78" stroke="#3f7047" stroke-width="8" stroke-linecap="round"/>${leaf(112,120,30,58,-50)}${leaf(208,135,30,58,48)}<circle cx="${150+hash%25}" cy="120" r="26" fill="#d26a4d"/><circle cx="${178+hash%18}" cy="151" r="23" fill="#7fba5c"/>`; }
+  else if(type==='tree'){ art=`<path d="M160 205V102" stroke="#72583e" stroke-width="18" stroke-linecap="round"/>${leaf(110,105,42,65,-50)}${leaf(208,105,42,65,50)}${leaf(136,72,38,57,-18)}${leaf(187,65,38,57,18)}`; }
+  else if(type==='root'){ art=`<path d="M160 70V150" stroke="#4e7e50" stroke-width="9"/>${leaf(124,100,26,55,-48)}${leaf(198,106,26,55,48)}<path d="M160 145c-18 30-40 42-55 60M160 145c20 30 43 42 59 60M160 151v52" stroke="#9a6b43" stroke-width="6" fill="none" stroke-linecap="round"/>`; }
+  else if(type==='bulb'){ art=`<path d="M160 197V92" stroke="#3f7047" stroke-width="8"/>${leaf(124,115,27,58,-48)}${leaf(196,115,27,58,48)}<path d="M128 182c15 24 49 31 64 0" fill="#e5c07a" stroke="#9c6c3f" stroke-width="5"/>`; }
+  else if(type==='grass'){ art=`<path d="M160 205C150 150 123 104 105 70M160 205C168 151 194 104 215 70M160 205C158 145 159 93 160 48" stroke="#4d8d57" stroke-width="9" fill="none" stroke-linecap="round"/>`; }
+  else if(type==='vine'){ art=`<path d="M156 205C150 160 168 132 158 104C149 78 168 59 180 47" stroke="#39734a" stroke-width="8" fill="none" stroke-linecap="round"/>${leaf(126,164,25,53,-50)}${leaf(198,145,25,53,50)}${leaf(128,107,25,53,-55)}${leaf(203,84,25,53,52)}${leaf(154,60,23,49,-5)}`; }
+  else { art=`<path d="M160 205V68M160 120L100 88M160 145L96 150M160 110L220 74M160 175L225 154" stroke="#3f7047" stroke-width="8" fill="none" stroke-linecap="round"/>${leaf(98,87,24,47,-45)}${leaf(97,151,24,47,-72)}${leaf(222,75,24,47,48)}${leaf(225,155,24,47,67)}${leaf(160,67,24,46,0)}`; }
+  const annotations = '<g fill="#6d5940" font-family="Georgia,serif" font-size="9" letter-spacing="1"><path d="M72 62H22" stroke="#887459" stroke-width="1.5"/><text x="7" y="59">FOLHAS</text><path d="M246 88H307" stroke="#887459" stroke-width="1.5"/><text x="251" y="83">'+(type==='flower'?'FLOR':type==='fruit'?'FRUTO':type==='root'?'RAIZ':type==='bulb'?'BULBO':'PARTE')+'</text><path d="M80 186H22" stroke="#887459" stroke-width="1.5"/><text x="7" y="181">CAULE</text></g>';
   art += annotations;
+  const title = compact ? '' : '<g font-family="Georgia,serif" fill="#3f392e"><text x="160" y="23" text-anchor="middle" font-size="16" font-weight="700">'+p.name+'</text><text x="160" y="39" text-anchor="middle" font-size="10" font-style="italic">'+p.scientific+'</text></g>';
+  return `<div class="plant-illustration"><svg viewBox="0 0 320 220" role="img" aria-label="Prancha botânica de ${p.name}"><rect width="320" height="220" fill="#e9ddc5"/><rect x="8" y="8" width="304" height="204" fill="none" stroke="#b9a37d" stroke-width="1.5"/><circle cx="160" cy="122" r="82" fill="#d4c5a5" opacity=".45"/>${art}${title}</svg></div>`;
+}
 
-  const title = compact
-    ? ''
-    : '<g font-family="Georgia,serif" fill="#3f392e">' +
-        '<text x="160" y="23" text-anchor="middle" font-size="16" font-weight="700">' +
-          p.name +
-        '</text>' +
-        '<text x="160" y="39" text-anchor="middle" font-size="10" font-style="italic">' +
-          p.scientific +
-        '</text>' +
-      '</g>';
-
-  return `
-    <div class="plant-illustration">
-      <svg
-        viewBox="0 0 320 220"
-        role="img"
-        aria-label="Prancha botânica de ${p.name}"
-      >
-        <rect
-          width="320"
-          height="220"
-          fill="#e9ddc5"
-        />
-
-        <rect
-          x="8"
-          y="8"
-          width="304"
-          height="204"
-          fill="none"
-          stroke="#b9a37d"
-          stroke-width="1.5"
-        />
-
-        <circle
-          cx="160"
-          cy="122"
-          r="82"
-          fill="#d4c5a5"
-          opacity=".45"
-        />
-
-        ${art}
-        ${title}
-      </svg>
+function cardTemplate(p){
+  return `<article class="plant-card" data-name="${normalize(p.name)}" data-tags="${normalize([p.scientific,p.tag,p.use].join(' '))}">
+    <div class="plant-art">${plantDrawing(p)}<span class="photo-credit">Ilustração botânica</span></div>
+    <div class="plant-body">
+      <div class="tag">${p.tag}</div>
+      <h3>${p.name}</h3>
+      <p class="scientific"><em>${p.scientific}</em></p>
+      <p>${p.summary}</p>
+      <button class="more" onclick="openPlant('${p.id}')">Ver ficha completa <span>→</span></button>
     </div>
-  `;
+  </article>`;
 }
 
-function cardTemplate(p) {
-  return `
-    <article
-      class="plant-card"
-      data-name="${normalize(p.name)}"
-      data-tags="${normalize(
-        [p.scientific, p.tag, p.use].join(' ')
-      )}"
-    >
-
-      <div class="plant-art">
-        ${plantDrawing(p)}
-        <span class="photo-credit">
-          Ilustração botânica
-        </span>
-      </div>
-
-      <div class="plant-body">
-
-        <div class="tag">
-          ${p.tag}
-        </div>
-
-        <h3>${p.name}</h3>
-
-        <p class="scientific">
-          <em>${p.scientific}</em>
-        </p>
-
-        <p>
-          ${p.summary}
-        </p>
-
-        <button
-          class="more"
-          onclick="openPlant('${p.id}')"
-        >
-          Ver ficha completa
-          <span>→</span>
-        </button>
-
-      </div>
-
-    </article>
-  `;
-}
-
-function renderQuickNav() {
-
-  const letters = [
-    ...new Set(
-      plants.map(
-        p => normalize(p.name).charAt(0).toUpperCase()
-      )
-    )
-  ].sort();
-
-  quickNav.innerHTML =
-    `<button
-      type="button"
-      data-letter="TODAS"
-      class="active"
-    >Todas</button>` +
-
-    letters
-      .map(
-        l =>
-          `<button
-            type="button"
-            data-letter="${l}"
-          >${l}</button>`
-      )
-      .join('');
-
-  quickNav.addEventListener('click', e => {
-
-    const btn = e.target.closest('button');
-
-    if (!btn) return;
-
+function renderQuickNav(){
+  const letters = [...new Set(plants.map(p=>normalize(p.name).charAt(0).toUpperCase()))].sort();
+  quickNav.innerHTML = `<button type="button" data-letter="TODAS" class="active">Todas</button>` + letters.map(l=>`<button type="button" data-letter="${l}">${l}</button>`).join('');
+  quickNav.addEventListener('click', (e)=>{
+    const btn = e.target.closest('button'); if(!btn) return;
     activeInitial = btn.dataset.letter;
-
-    quickNav
-      .querySelectorAll('button')
-      .forEach(
-        b =>
-          b.classList.toggle(
-            'active',
-            b === btn
-          )
-      );
-
+    quickNav.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b===btn));
     renderPlants();
   });
 }
 
-function fillSelect() {
-
-  const ordered = [...plants].sort(
-    (a,b) => a.name.localeCompare(b.name,'pt-BR')
-  );
-
-  select.innerHTML =
-    '<option value="">🌿 Escolha uma planta…</option>' +
-
-    ordered
-      .map(
-        p =>
-          `<option value="${p.id}">
-            ${p.name}
-          </option>`
-      )
-      .join('');
+function fillSelect(){
+  const ordered = [...plants].sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+  select.innerHTML = '<option value="">🌿 Escolha uma planta…</option>' + ordered.map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
 }
 
-function renderPlants() {
-
+function renderPlants(){
   const q = normalize(activeQuery.trim());
-
-  const filtered = plants
-    .filter(p => {
-
-      const letterOk =
-        activeInitial === 'TODAS' ||
-        normalize(p.name).startsWith(
-          activeInitial.toLowerCase()
-        );
-
-      const hay = normalize(
-        [
-          p.name,
-          p.scientific,
-          p.tag,
-          p.summary,
-          p.use
-        ].join(' ')
-      );
-
-      return (
-        letterOk &&
-        (!q || hay.includes(q))
-      );
-    })
-    .sort(
-      (a,b) =>
-        a.name.localeCompare(
-          b.name,
-          'pt-BR'
-        )
-    );
-
-  plantGrid.innerHTML =
-    filtered.length
-      ? filtered.map(cardTemplate).join('')
-      : `
-        <div class="empty">
-          Nenhuma planta encontrada.
-          Tente outro nome, espécie ou uso.
-        </div>
-      `;
-
-  resultsCount.textContent =
-    `${filtered.length} ${
-      filtered.length === 1
-        ? 'planta'
-        : 'plantas'
-    } encontrada${
-      filtered.length === 1
-        ? ''
-        : 's'
-    }`;
+  const filtered = plants.filter(p=>{
+    const letterOk = activeInitial==='TODAS' || normalize(p.name).startsWith(activeInitial.toLowerCase());
+    const hay = normalize([p.name,p.scientific,p.tag,p.summary,p.use].join(' '));
+    return letterOk && (!q || hay.includes(q));
+  }).sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+  plantGrid.innerHTML = filtered.length ? filtered.map(cardTemplate).join('') : '<div class="empty">Nenhuma planta encontrada. Tente outro nome, espécie ou uso.</div>';
+  resultsCount.textContent = `${filtered.length} ${filtered.length===1?'planta':'plantas'} encontrada${filtered.length===1?'':'s'}`;
 }
 
 function openPlant(id) {
-
-  const p = plants.find(
-    x => x.id === id
-  );
-
-  if (!p) return;
-
-  document.getElementById('modalPhoto').innerHTML =
-    plantDrawing(p,true);
-
-  document.getElementById('modalPhotoSource').textContent =
-    'Ilustração botânica de referência';
-
-  document.getElementById('modalTitle').textContent =
-    p.name;
-
-  document.getElementById('modalScientific').innerHTML =
-    '<em>' + p.scientific + '</em>';
-
-  document.getElementById('modalSummary').textContent =
-    p.summary;
-
-  document.getElementById('modalUse').textContent =
-    p.use;
-
-  document.getElementById('modalHistory').textContent =
-    p.history;
-
-  document.getElementById('modalPart').textContent =
-    p.part;
-
-  document.getElementById('modalOrigin').textContent =
-    p.origin;
-
-  document.getElementById('modalCaution').textContent =
-    'Atenção: ' + p.caution;
-
+  const p=plants.find(x=>x.id===id); if(!p) return;
+  document.getElementById('modalPhoto').innerHTML=plantDrawing(p,true);
+  document.getElementById('modalPhotoSource').textContent='Ilustração botânica de referência';
+  document.getElementById('modalTitle').textContent=p.name;
+  document.getElementById('modalScientific').innerHTML='<em>'+p.scientific+'</em>';
+  document.getElementById('modalSummary').textContent=p.summary;
+  document.getElementById('modalUse').textContent=p.use;
+  document.getElementById('modalHistory').textContent=p.history;
+  document.getElementById('modalPart').textContent=p.part;
+  document.getElementById('modalOrigin').textContent=p.origin;
+  document.getElementById('modalCaution').textContent='Atenção: '+p.caution;
   document.getElementById('modal').classList.add('show');
-
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
+function closePlant() { document.getElementById('modal').classList.remove('show'); document.body.style.overflow=''; }
+function backdrop(e) { if(e.target.id==='modal') closePlant(); }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closePlant(); });
 
-function closePlant() {
-  document
-    .getElementById('modal')
-    .classList
-    .remove('show');
-
-  document.body.style.overflow = '';
-}
-
-function backdrop(e) {
-  if (e.target.id === 'modal') {
-    closePlant();
-  }
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    closePlant();
-  }
-});
-
-search.addEventListener('input', e => {
-  activeQuery = e.target.value;
-  renderPlants();
-});
-
-select.addEventListener('change', e => {
-  if (e.target.value) {
-    openPlant(e.target.value);
-  }
-
-  e.target.value = '';
-});
-
-clearFilters.addEventListener('click', () => {
-
-  activeQuery = '';
-  activeInitial = 'TODAS';
-
-  search.value = '';
-  select.value = '';
-
-  quickNav
-    .querySelectorAll('button')
-    .forEach(
-      b =>
-        b.classList.toggle(
-          'active',
-          b.dataset.letter === 'TODAS'
-        )
-    );
-
-  renderPlants();
+search.addEventListener('input',e=>{ activeQuery=e.target.value; renderPlants(); });
+select.addEventListener('change',e=>{ if(e.target.value) openPlant(e.target.value); e.target.value=''; });
+clearFilters.addEventListener('click',()=>{
+  activeQuery=''; activeInitial='TODAS'; search.value=''; select.value=''; quickNav.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.letter==='TODAS')); renderPlants();
 });
 
 renderQuickNav();
 fillSelect();
 renderPlants();
 </script>
-
 </body>
 </html>
