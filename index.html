@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -188,7 +189,7 @@ footer { padding:28px 0 44px; color:var(--muted); font-size:.88rem; border-top:1
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="backdrop(event)">
     <div class="sheet">
       <div class="sheet-top"><div><div class="kicker">Ficha da planta</div><h2 id="modalTitle">Planta</h2></div><button class="close" onclick="closePlant()" aria-label="Fechar">✕</button></div>
-      <div class="sheet-content"><div id="modalPhoto" class="modal-photo" role="img" aria-label="Ilustração botânica da planta"></div><p id="modalPhotoSource" class="modal-photo-source"></p><p id="modalScientific" class="scientific"></p><p id="modalSummary" class="lede" style="margin:0;max-width:none;"></p><div class="detail-grid"><div class="detail"><strong>Quando é usada?</strong><span id="modalUse"></span></div><div class="detail"><strong>História / descoberta</strong><span id="modalHistory"></span></div><div class="detail"><strong>Parte mais conhecida</strong><span id="modalPart"></span></div><div class="detail"><strong>Origem</strong><span id="modalOrigin"></span></div></div><div class="notice" id="modalCaution"></div><div class="modal-owner-footer" id="modalOwnerFooter" style="display:none"><span>Responsável</span><strong id="modalOwner"></strong></div></div>
+      <div class="sheet-content"><div id="modalPhoto" class="modal-photo" role="img" aria-label="Ilustração botânica da planta"></div><p id="modalPhotoSource" class="modal-photo-source"></p><p id="modalScientific" class="scientific"></p><p id="modalSummary" class="lede" style="margin:0;max-width:none;"></p><div class="detail-grid"><div class="detail"><strong>Quando é usada?</strong><span id="modalUse"></span></div><div class="detail"><strong>História / descoberta</strong><span id="modalHistory"></span></div><div class="detail"><strong>Parte mais conhecida</strong><span id="modalPart"></span></div><div class="detail"><strong>Origem</strong><span id="modalOrigin"></span></div><div class="detail" id="modalCharacteristicsDetail" style="display:none"><strong>Características da planta</strong><span id="modalCharacteristics"></span></div></div><div class="notice" id="modalCaution"></div><div class="modal-owner-footer" id="modalOwnerFooter" style="display:none"><span>Responsável</span><strong id="modalOwner"></strong></div></div>
     </div>
   </div>
 </div>
@@ -604,7 +605,8 @@ plants.push(
   {"id":"equinacea","name":"Equinácea","scientific":"Echinacea purpurea","tag":"flores • tradição","summary":"Planta de flores roxas muito conhecida como ornamental e presente em produtos fitoterápicos.","use":"É estudada principalmente em relação a sintomas de resfriados, com resultados científicos variados.","history":"É nativa da América do Norte e tem histórico de uso tradicional por povos da região.","part":"Partes aéreas e raízes","origin":"América do Norte","caution":"Pode provocar reações alérgicas em algumas pessoas.","photo":"https://miro.medium.com/v2/resize%3Afit%3A1200/1%2A3432OQvv_fDXUwm8hRsVgg.png","photoSource":"https://commons.wikimedia.org/wiki/Category:Echinacea_purpurea"},
   {"id":"dente-de-leao","name":"Dente-de-leão","scientific":"Taraxacum officinale","tag":"digestão • tradição","summary":"Planta de folhas recortadas e flores amarelas, comum em várias regiões do mundo.","use":"Tradicionalmente utilizada em alimentos e infusões; alguns usos medicinais são estudados cientificamente.","history":"É conhecida há séculos em tradições europeias e asiáticas e atualmente ocorre em muitas partes do mundo.","part":"Folhas e raízes","origin":"Europa e Ásia; hoje cosmopolita","caution":"Pode interagir com alguns medicamentos; uso medicinal deve considerar orientação adequada.","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Taraxacum_officinale_Weber.JPG/960px-Taraxacum_officinale_Weber.JPG","photoSource":"https://commons.wikimedia.org/wiki/Category:Taraxacum_officinale"},
   {"id":"espinheira-santa","name":"Espinheira-santa","scientific":"Maytenus ilicifolia","tag":"estômago • Brasil","summary":"Arbusto sul-americano de folhas espinhosas, importante na tradição medicinal brasileira.","use":"Tradicionalmente utilizada para desconfortos gástricos e sintomas de dispepsia em preparações específicas.","history":"É nativa do sul da América do Sul e tem longa história de uso tradicional no Brasil e em países vizinhos.","part":"Folhas","origin":"Sul do Brasil, Paraguai, Uruguai e Argentina","caution":"O uso medicinal deve ser feito com orientação adequada, especialmente durante a gestação.","photo":"https://photos1.blogger.com/blogger2/1358/1337/1600/178.jpg","photoSource":"https://commons.wikimedia.org/wiki/Category:Maytenus_ilicifolia"},
-  {"id":"maracuja-roxo","name":"Maracujá-roxo","scientific":"Passiflora incarnata","tag":"relaxamento • tradição","summary":"Trepadeira de flores roxas conhecida em diferentes tradições pelo uso associado ao relaxamento.","use":"É estudada em preparações específicas relacionadas ao relaxamento e ao sono; os resultados variam conforme a preparação.","history":"É nativa da América do Norte e faz parte do gênero Passiflora, conhecido pelas flores muito características.","part":"Partes aéreas","origin":"América do Norte e regiões próximas","caution":"Pode causar sonolência e interagir com alguns medicamentos.","photo":"https://asiabiopharm.com/wa-data/public/shop/products/41/50/5041/images/11398/11398.970.png","photoSource":"https://commons.wikimedia.org/wiki/Category:Passiflora_incarnata"}
+  {"id":"maracuja-roxo","name":"Maracujá-roxo","scientific":"Passiflora incarnata","tag":"relaxamento • tradição","summary":"Trepadeira de flores roxas conhecida em diferentes tradições pelo uso associado ao relaxamento.","use":"É estudada em preparações específicas relacionadas ao relaxamento e ao sono; os resultados variam conforme a preparação.","history":"É nativa da América do Norte e faz parte do gênero Passiflora, conhecido pelas flores muito características.","part":"Partes aéreas","origin":"América do Norte e regiões próximas","caution":"Pode causar sonolência e interagir com alguns medicamentos.","photo":"https://asiabiopharm.com/wa-data/public/shop/products/41/50/5041/images/11398/11398.970.png","photoSource":"https://commons.wikimedia.org/wiki/Category:Passiflora_incarnata"},
+  {"id":"algodao","name":"Algodão","scientific":"Gossypium spp.","tag":"fibra natural • indústria","summary":"Planta cultivada por suas fibras naturais, utilizadas principalmente na fabricação de tecidos, roupas e produtos de higiene.","use":"O algodão é utilizado principalmente na produção de fibras naturais para tecidos, roupas e produtos de higiene; não é apresentado aqui como planta medicinal.","history":"O algodão vem do algodoeiro, planta do gênero Gossypium. É cultivado há muito tempo por suas fibras, que têm grande importância na produção têxtil.","part":"Fibras que envolvem as sementes, encontradas nos frutos chamados capulhos.","origin":"O gênero Gossypium possui espécies originárias de diferentes regiões tropicais e subtropicais do mundo.","caution":"O algodão é apresentado nesta ficha por sua importância botânica e econômica, não como tratamento medicinal.","characteristics":"Raiz: ajuda a absorver água e nutrientes do solo. Caule: sustenta a planta e os galhos. Folhas: geralmente verdes. Flores: brancas, amareladas ou rosadas. Frutos: chamados capulhos, contêm fibras e sementes."}
 );
 
 const latestPlants = new Map();
@@ -640,6 +642,10 @@ plants.forEach(p=>{
 
 const plantOwners = {
   "cravo-da-india":"abner",
+  "boldo":"Geziel",
+  "alecrim":"Ana",
+  "maracuja":"Rebeca",
+  "algodao":"Yara",
   "erva-mate":"Nicole",
   "alho":"João V",
   "cidreira":"hiago",
@@ -906,6 +912,10 @@ function openPlant(id) {
   document.getElementById('modalHistory').textContent=p.history;
   document.getElementById('modalPart').textContent=p.part;
   document.getElementById('modalOrigin').textContent=p.origin;
+
+  const characteristicsDetail=document.getElementById('modalCharacteristicsDetail');
+  characteristicsDetail.style.display=p.characteristics ? 'block' : 'none';
+  document.getElementById('modalCharacteristics').textContent=p.characteristics || '';
 
   const ownerFooter=document.getElementById('modalOwnerFooter');
   ownerFooter.style.display=p.owner ? 'flex' : 'none';
