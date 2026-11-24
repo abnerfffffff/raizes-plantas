@@ -680,6 +680,13 @@ function normalize(text){
   return (text||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 }
 
+function normalizeSearch(text){
+  return normalize(text)
+    .replace(/[^a-z0-9]+/g,' ')
+    .trim()
+    .replace(/\s+/g,' ');
+}
+
 function makeFallback(name){
   const label = name.slice(0,1).toUpperCase();
   return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
@@ -871,14 +878,15 @@ function fillSelect(){
 }
 
 function renderPlants(){
-  const q = normalize(activeQuery.trim());
+  // Divide a busca em termos e ignora diferenças de acentos, hífens e pontuação.
+  const terms = normalizeSearch(activeQuery).split(' ').filter(Boolean);
 
   const filtered = plants.filter(p=>{
     const letterOk =
       activeInitial==='TODAS' ||
       normalize(p.name).startsWith(activeInitial.toLowerCase());
 
-    const hay = normalize([
+    const hay = normalizeSearch([
       p.name,
       p.scientific,
       p.tag,
@@ -886,7 +894,8 @@ function renderPlants(){
       p.use
     ].join(' '));
 
-    return letterOk && (!q || hay.includes(q));
+    // Todos os termos digitados precisam aparecer no conteúdo da planta.
+    return letterOk && terms.every(term=>hay.includes(term));
   }).sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
 
   plantGrid.innerHTML = filtered.length
@@ -942,6 +951,12 @@ document.addEventListener('keydown',e=>{
 
 search.addEventListener('input',e=>{
   activeQuery=e.target.value;
+
+  // Ao pesquisar, remove o filtro por inicial para não esconder resultados.
+  activeInitial='TODAS';
+  quickNav.querySelectorAll('button')
+    .forEach(b=>b.classList.toggle('active',b.dataset.letter==='TODAS'));
+
   renderPlants();
 });
 
