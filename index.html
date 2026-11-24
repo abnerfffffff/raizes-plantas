@@ -887,11 +887,15 @@ function renderPlants(){
       activeInitial==='TODAS' ||
       normalize(p.name).startsWith(activeInitial.toLowerCase());
 
-    // Pesquisa pelo nome popular da planta ou pelo responsável.
-    const hay = normalizeSearch([p.name, p.owner || ''].join(' '));
+    // Pesquisa pelas palavras do nome popular ou do responsável.
+    const searchableWords = normalizeSearch([p.name, p.owner || ''].join(' '))
+      .split(' ')
+      .filter(Boolean);
 
-    // Todos os termos digitados precisam aparecer no nome ou responsável.
-    return letterOk && terms.every(term=>hay.includes(term));
+    // Cada termo deve corresponder ao início de uma palavra.
+    return letterOk && terms.every(term =>
+      searchableWords.some(word => word.startsWith(term))
+    );
   }).sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
 
   plantGrid.innerHTML = filtered.length
