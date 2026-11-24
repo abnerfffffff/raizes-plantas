@@ -887,15 +887,10 @@ function renderPlants(){
       activeInitial==='TODAS' ||
       normalize(p.name).startsWith(activeInitial.toLowerCase());
 
-    const hay = normalizeSearch([
-      p.name,
-      p.scientific,
-      p.tag,
-      p.summary,
-      p.use
-    ].join(' '));
+    // A pesquisa considera somente o nome popular da planta.
+    const hay = normalizeSearch(p.name);
 
-    // Todos os termos digitados precisam aparecer no conteúdo da planta.
+    // Todos os termos digitados precisam aparecer no nome da planta.
     return letterOk && terms.every(term=>hay.includes(term));
   }).sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
 
