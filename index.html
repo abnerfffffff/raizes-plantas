@@ -146,7 +146,7 @@ footer { padding:28px 0 44px; color:var(--muted); font-size:.88rem; border-top:1
         <div class="section-head">
           <div><div class="kicker">Catálogo</div><h2>Encontre uma planta sem ficar rolando</h2></div>
           <div class="catalog-tools">
-            <label class="search" aria-label="Buscar planta"><span>⌕</span><input id="search" type="search" placeholder="Nome, espécie ou uso…" autocomplete="off" /></label>
+            <label class="search" aria-label="Buscar planta"><span>⌕</span><input id="search" type="search" placeholder="Nome da planta ou responsável…" autocomplete="off" /></label>
             <label aria-label="Escolher uma planta" style="display:none">
               <select id="plantSelect" class="plant-select">
                 <option value="">🌿 Escolha uma planta…</option>
@@ -887,10 +887,10 @@ function renderPlants(){
       activeInitial==='TODAS' ||
       normalize(p.name).startsWith(activeInitial.toLowerCase());
 
-    // A pesquisa considera somente o nome popular da planta.
-    const hay = normalizeSearch(p.name);
+    // Pesquisa pelo nome popular da planta ou pelo responsável.
+    const hay = normalizeSearch([p.name, p.owner || ''].join(' '));
 
-    // Todos os termos digitados precisam aparecer no nome da planta.
+    // Todos os termos digitados precisam aparecer no nome ou responsável.
     return letterOk && terms.every(term=>hay.includes(term));
   }).sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
 
